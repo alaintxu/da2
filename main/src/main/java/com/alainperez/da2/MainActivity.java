@@ -1,15 +1,27 @@
 package com.alainperez.da2;
 
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+
+import com.alainperez.da2.graphic.SquareRenderer;
 
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //GLSurfaceView view  =   (GLSurfaceView) this.findViewById(R.id.main_surface);
+        GLSurfaceView view  =   new GLSurfaceView(this);
+        view.setRenderer(new SquareRenderer(true));
+        setContentView(view);
+        //setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
     }
 
 
