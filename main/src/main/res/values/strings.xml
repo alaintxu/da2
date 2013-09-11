@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">DA2</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="more">More</string>
+    <string name="exit">Exit</string>
+    <string name="exit_message">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

@@ -4,7 +4,9 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import com.alainperez.da2.dialog.ExitDialog;
 import com.alainperez.da2.graphic.SquareRenderer;
 
 public class MainActivity extends Activity {
@@ -31,5 +33,16 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId	=	item.getItemId();
+        switch (itemId) {
+            case R.id.menu_exit:
+                ExitDialog ed	=	new ExitDialog(this);
+                ed.startDialog();
+                return true;
+        }
+        return false;
+    }
 }
