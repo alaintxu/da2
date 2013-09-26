@@ -1,5 +1,6 @@
 package com.alainperez.da2;
 
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.app.Activity;
@@ -11,21 +12,17 @@ import com.alainperez.da2.graphic.SquareRenderer;
 
 public class MainActivity extends Activity {
 
+    private GLSurfaceView mGLView;
+    private GLSurfaceView mSurfaceView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //GLSurfaceView view  =   (GLSurfaceView) this.findViewById(R.id.main_surface);
-        GLSurfaceView view  =   new GLSurfaceView(this);
-        view.setRenderer(new SquareRenderer(true));
-        setContentView(view);
-        //setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    public void onStart(){
-        super.onStart();
-    }
+        initialize();
 
+        setContentView(mGLView);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,5 +41,30 @@ public class MainActivity extends Activity {
                 return true;
         }
         return false;
+    }
+
+    //Tutorial http://www.jayway.com/2013/05/09/opengl-es-2-0-tutorial-for-android-part-i-getting-started/
+    private void initialize(){
+        mGLView = new GLSurfaceView(this);
+        mGLView.setEGLContextClientVersion(2);
+        mGLView.setPreserveEGLContextOnPause(true);
+        mGLView.setRenderer(new MainRenderer());
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(mSurfaceView != null){
+            mSurfaceView.onResume();
+        }
+
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if(mSurfaceView != null){
+            mSurfaceView.onPause();
+        }
     }
 }

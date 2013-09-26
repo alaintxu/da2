@@ -3,7 +3,6 @@ package com.alainperez.da2.graphic;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 
@@ -18,6 +17,7 @@ public class Square {
     private ByteBuffer  mIndexBuffer;
 
     public Square(){
+
         float vertices[] = {
                 -1.0f, -1.0f,
                 1.0f, -1.0f,

@@ -18,6 +18,7 @@ public class SquareRenderer implements GLSurfaceView.Renderer{
 
     public SquareRenderer(boolean useTranslucentBackground){
         mTranslucentBackground = useTranslucentBackground;
+
         mSquare = new Square();
     }
     public void onDrawFrame(GL10 gl){
